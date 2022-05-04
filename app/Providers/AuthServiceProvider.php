@@ -29,7 +29,6 @@ class AuthServiceProvider extends ServiceProvider
         //開発者のみ許可
         Gate::define('system-only',function($users){
             return($users->role==1);
-            
         });
 
         //管理者以上(管理者、園長から主任まで)に許可

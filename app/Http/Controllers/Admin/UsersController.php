@@ -10,6 +10,8 @@ use App\Users;
 
 class UsersController extends Controller
 {
+    protected $redirectTo = '/home';
+     
     //5月3日追記
     public function add()
     {
