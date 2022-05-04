@@ -31,7 +31,7 @@ class UsersController extends Controller
         $users = new Users;
         $form = $request->all();
         
-        //admin/nursery/createにリダイレクトする
+        //admin/users/createにリダイレクトする
         
         Log::warning($users->title);
         
