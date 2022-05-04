@@ -44,4 +44,13 @@ class UsersController extends Controller
          
          return redirect('admin/users/create');
     }
+    
+    public function delete(Request $request)
+{
+  //
+   $users = Users::find($request->id);
+   //削除する
+   $users->lete();
+   return redirect('admin/users/');
+  }
 }
