@@ -1,6 +1,27 @@
 body {
-     background-repeat: no-repeat;
-  background-position: center;
-  background-color: #000;
-  color: #fff;
+  
+  background-image: url(images/nursery_image1.jpg);
+  background-color: #f5a500;
+  bachground-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
 }
+
+.navbar-laravel {
+    
+  bachground-repeat: no-repeat;
+  background-size: cover;
+}
+
+.login-box {
+  background-color: rgba(254, 207, 141, 0.3);
+}
+
+.login-header {
+  background-color: rgba(254, 207, 141, 0.25);
+}
+
+.login-body {
+  background-color: rgba(249, 169, 128, 0.25);
+}
+
