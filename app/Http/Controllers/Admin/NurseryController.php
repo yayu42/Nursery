@@ -28,4 +28,12 @@ class NurseryController extends Controller
         return redirect('admin/nursery/edit');
     }
     
+     public function delete(Request $request)
+    {
+   //
+   $users = Users::find($request->id);
+   //削除する
+   $users->lete();
+   return redirect('admin/users/');
+    }
 }

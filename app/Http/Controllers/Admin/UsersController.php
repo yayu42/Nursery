@@ -47,9 +47,36 @@ class UsersController extends Controller
          return redirect('admin/users/create');
     }
     
+    public function index(Request $request)
+    {
+        $cond_title = $request->cond_title;
+        if ($cond_title != '') {
+            //検索されたら検索結果を取得する
+            $posts = Users::were('title', $cond_title)->get();
+        } else {
+            //それ以外はすべての内容を取得する
+            $posts = Users::all();
+        } 
+        return view('admin.users.index', ['posts' => $posts, 'cond_title' => $cond_title]);
+    }
+    
+    public function edit()
+    {
+        $users = Users::find($request->id);
+        if (empty($users)) {
+          abort(404);
+        }
+        return view('admin.users.edit', ['users_form' => $users]);
+    }
+    
+    public function update()
+    {
+        return view('admin/users/egit');
+    }
+    
     public function delete(Request $request)
-{
-  //
+    {
+   //
    $users = Users::find($request->id);
    //削除する
    $users->lete();
