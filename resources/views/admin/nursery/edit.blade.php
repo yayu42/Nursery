@@ -1,11 +1,11 @@
 @extends('layouts.admin')
-@section('title', 'ニュースの編集')
+@section('cond_title', 'デイリーボード')
 
 @section('content')
     <div class="container">
         <div class="row">
             <div class="col-md-8 mx-auto">
-                <h2>ニュース編集</h2>
+                <h2>デイリーボード</h2>
                 <form action="{{ action('Admin\NewsController@update') }}" method="post" enctype="multipart/form-data">
                     @if (count($errors) > 0)
                         <ul>

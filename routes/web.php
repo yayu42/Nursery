@@ -84,5 +84,15 @@ Route::get('users/','Admin\UsersController@index');
      
 });
 
+//カリキュラム内容
+Route::group(['prefix' => 'admin','middleware' => 'auth'],function(){
+    Route::get('nursery/create','Admin\NurseryController@add');
+    Route::post('nursery/create','Admin\NurseryController@create');
+    Route::get('nursery', 'Admin\NurseryController@index');
+    Route::get('nursery/edit', 'Admin\NurseryController@edit');
+    Route::post('nursery/edit', 'Admin\NurseryController@update');
+    Route::get('nursery/delete', 'Admin\NurseryController@delete');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
+});
