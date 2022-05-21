@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 //下記use 5月2日追記
-use App\Users;
+use App\User;
 
 class UsersController extends Controller
 {

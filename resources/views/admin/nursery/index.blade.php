@@ -11,9 +11,9 @@
                 <a href="{{ action('Admin\NurseryController@add') }}" role="button"class="btn btn-primary">新規作成</a>
             </div>
             <div class="col-md-8">
-                <form action="{{ action('Admin\NewsController@index') }}" method="get">
+                <form action="{{ action('Admin\NurseryController@index') }}" method="get">
                     <div class="form-group row">
-                        <label class="col-md-2">タイトル</label>
+                        <label class="col-md-2">園児　一覧</label>
                         <div class="col-md-8">
                             <input type="text" class="form-control" name="cond_title" value="{{ $cond_title }}">
                         </div>
