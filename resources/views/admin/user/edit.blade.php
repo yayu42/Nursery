@@ -2,7 +2,7 @@
 @extends('layouts.admin')
 
 
-{{-- admin.blade.phpの@yield('title')に' 'を埋め込む --}}
+{{-- admin.blade.phpの@yield('title')に'デイリーボード'を埋め込む --}}
 @section('cond_title', 'トップページ')
 
 {{-- admin.blade.phpの@yield('content')に以下のタグを埋め込む --}}

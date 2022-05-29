@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 //下記use 5月2日追記
-use App\User;
+use App\Users;
 
 class UsersController extends Controller
 {
@@ -62,7 +62,7 @@ class UsersController extends Controller
     
     public function edit()
     {
-        $users = Users::find($request->id);
+        $users = Users::find($request->{user_id});
         if (empty($users)) {
           abort(404);
         }
@@ -77,7 +77,7 @@ class UsersController extends Controller
     public function delete(Request $request)
     {
    //
-   $users = Users::find($request->id);
+   $users = Users::find($request->user_id);
    //削除する
    $users->lete();
    return redirect('admin/users/');

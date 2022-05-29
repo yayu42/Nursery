@@ -76,7 +76,7 @@ Route::get('users/','Admin\UsersController@index');
     //保育園
     //----------------------------------------
     //一覧
-    Route::get('nursery/','Sysstem\NurseryController@index');
+    Route::get('nursery/','System\NurseryController@index');
     
     //登録
     Route::get('nursery/create','System\NurseryController@add');
