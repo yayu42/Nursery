@@ -93,6 +93,10 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'],function(){
     Route::post('nursery/edit', 'Admin\NurseryController@update');
     Route::get('nursery/delete', 'Admin\NurseryController@delete');
     Route::get('nursery/ledger', 'Admin\NurseryController@ledger');
+    
+    Route::get('user/create','Admin\UserController@add');
+    Route::post('user/create','Admin\UserController@create');
+     Route::get('user', 'Admin\UserController@index');
 
 Route::get('/home', 'HomeController@index')->name('home');
 

@@ -16,7 +16,7 @@ class UserController extends Controller
     //5月3日追記
     public function add()
     {
-        Log::warning("test");
+        //Log::warning("test");
         
         return view('admin.user.create');
     }
@@ -25,7 +25,7 @@ class UserController extends Controller
     public function create(Request $request)
     {
         //Varidationを行う
-        Log::warning($request);
+        //Log::warning($request);
         
         $this->varidate($request, User::$rules);
         

@@ -1,8 +1,8 @@
-{{-- layouts/profle.blade.phpを読み込む --}}
-       @extends('layouts.profile')
+{{-- layouts/admin.blade.phpを読み込む --}}
+       @extends('layouts.admin')
        
        {{--profile.blade.phpの@yield('title)に'職員情報登録'を埋め込む --}}
-       @section('title','Myプロフィール')
+       @section('title','職員情報')
        
        {{-- profile.blade.phpの@yield('content')に以下のタグを埋め込む --}}
        @section('content')
@@ -37,7 +37,7 @@
                              <div class="col-md-2">
                                  <select id="birth_year" class="form-control" name="birth_year">
                                      <option value="">----</option>
-                                     @for ($i = 1980; $i <= 2005; $i++)
+                                     @for ($i = 1980; $i <= 2022; $i++)
                                      <option value="{{ $i }}"@if(old('birth_year') == $i) selected @endif>{{ $i }}</option>
                                      @endfor
                                  </select>
