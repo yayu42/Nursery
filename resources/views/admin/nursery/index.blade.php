@@ -13,7 +13,7 @@
             <div class="col-md-8">
                 <form action="{{ action('Admin\NurseryController@index') }}" method="get">
                     <div class="form-group row">
-                        <label class="col-md-2">園児　一覧</label>
+                        <label class="col-md-2">新規作成</label>
                         <div class="col-md-8">
                             <input type="text" class="form-control" name="cond_title" value="{{ $cond_title }}">
                         </div>
@@ -38,17 +38,17 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($posts as $news)
+                            @foreach($posts as $nursery)
                                  <tr>
-                                     <th>{{ $news->id }}</th>
-                                     <td>{{ \Str::limit($news->title, 100) }}</td>
-                                     <td>{{ \Str::limit($news->body, 250) }}</td>
+                                     <th>{{ $nursery->id }}</th>
+                                     <td>{{ \Str::limit($nursery->title, 100) }}</td>
+                                     <td>{{ \Str::limit($nursery->body, 250) }}</td>
                                      <td>
                                          <div>
-                                             <a href="{{ action('Admin\NewsController@edit', ['id' => $news->id]) }}">編集</a>
+                                             <a href="{{ action('Admin\NurseryController@edit', ['id' => $nurery->id]) }}">編集</a>
                                         </div>
                                         <div>
-                                            <a href="{{ action('Admin\NewsController@edit', ['id' => $news->id]) }}">削除</a>
+                                            <a href="{{ action('Admin\NurseryController@edit', ['id' => $nursery->id]) }}">削除</a>
                                         </div>
                                     </td>
                                 </tr>

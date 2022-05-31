@@ -3,14 +3,13 @@
 
 
 {{-- admin.blade.phpの@yield('title')に'デイリーボード'を埋め込む --}}
-@section('cond_title', 'デイリーボード')
+@section('title', 'デイリーボード')
 
 {{-- admin.blade.phpの@yield('content')に以下のタグを埋め込む --}}
 @section('content')
     <div class="container">
-        <div class="row">
-            <div class="col-md-8 mx-auto">
-                <h2>メイン ページ</h2>
+            <div class="header-title-area">
+                <h2>保育アプリ　仮</h2>
                 <form action="{{ action('Admin\NurseryController@create') }}" method="post" enctype="multipart/form-data">
                     
                  @if (count($errors) > 0)
@@ -21,15 +20,15 @@
                         </ul>
                     @endif
                     <div class="form-group row">
-                        <label class="col-md-2">デイリーボード</label>
-                        <div class="col-md-10">
-                            <input type="text" class="form-control" name="title" value="{{ old('cond_title') }}">
-                        </div>
+                        <label class="col-md-2"> </label>
                     </div>
                     <div class="front-group row">
-                       <script src=　>
+                        <a href="https://d870986cce574aa58d646e8695c3aa0e.vfs.cloud9.ap-northeast-1.amazonaws.com/admin/nursery/ledger">
+                        <img src="https://gyazo.com/c40903939bb453a6407ebc88d7816e63" alt="園児台帳">
+                        </a>
+                    </div>
+                    {{--以下、・園内連絡・保護者連絡・指導計画のリンク作成--}}
                     {{ csrf_field() }}
-                    <input type="submit" class="btn btn-primary" value="更新">
                 </form>
             </div>
         </div>

@@ -25,25 +25,4 @@ class HomeController extends Controller
     {
         return view('home');
     }
-    
-     public function add()
-    {
-        return view('home.create');
-    }
-    
-    public function create()
-    {
-        return redirect('home/create');
-    }
-    
-    public function edit()
-    {
-        return view('home.edit');
-    }
-    
-    public function update()
-    {
-        return redirect('home/edit');
-    }
-    
 }

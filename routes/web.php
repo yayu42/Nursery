@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::get('/home','UsersController@index')->name('home');
+Route::get('/home','Admin\UserController@index')->name('home');
 
 //全ユーザー
 Route::group(['middeware' => ['auth','can:user-higher']],function(){
@@ -24,11 +24,11 @@ Route::group(['middeware' => ['auth','can:user-higher']],function(){
     //ユーザー
     //---------------------------------------------------
     //一覧
-    Route::get('users/','UsersController@index');
+    Route::get('user/','UserController@index');
     
     //編集
-    Route::get('users/edit/{user_id}', 'UsersController@edit');
-    Route::post('users/edit/{user_id}', 'UsersController@update');
+    Route::get('user/edit/{user_id}', 'UserController@edit');
+    Route::post('user/edit/{user_id}', 'UserController@update');
 });
 
 //管理者以上
@@ -38,49 +38,49 @@ Route::group(['prefix' => 'admin','middleware' => ['auth','can:admin-higher']], 
     //ユーザー
     //--------------------------------------
     //一覧
-Route::get('users/','Admin\UsersController@index');
+Route::get('user/','Admin\UserController@index');
 
     //登録
-    Route::get('users/create','Admin\UsersController@add');
-    Route::post('users/create','Admin\UsersController@create');
+    Route::get('user/create','Admin\UserController@add');
+    Route::post('user/create','Admin\UserController@create');
     
     //編集
-    Route::get('users/edit/{user_id}','Admin\UsersController@edit');
-    Route::post('users/edit/{user_id}','Admin\UsersController@update');
+    Route::get('user/edit/{user_id}','Admin\UserController@edit');
+    Route::post('user/edit/{user_id}','Admin\UserController@update');
     
     //削除
-    Route::post('users/delete/{user_id}','Admin\UsersController@delete');
+    Route::post('user/delete/{user_id}','Admin\UserController@delete');
     
     //管理者
     //----------------------------------------------
     //一覧
-    Route::get('users/','Admin\UsersController@index');
+    Route::get('user/','Admin\UserController@index');
     
     //登録
-    Route::get('users/create','Admin\UsersController@add');
-    Route::post('users/create','Admin\UsersController@create');
+    Route::get('user/create','Admin\UserController@add');
+    Route::post('user/create','Admin\UserController@create');
     
     //編集
-     Route::get('users/edit/{ser_id}', 'UsersController@edit');
-    Route::post('users/edit/{user_id}', 'UsersController@update');
+     Route::get('user/edit/{user_id}', 'UserController@edit');
+    Route::post('user/edit/{user_id}', 'UserController@update');
     
     //削除
-    Route::post('users/delete/{user_id}', 'UsersController@delete');
+    Route::post('user/delete/{user_id}', 'UserController@delete');
 
 });
 
     //システム管理者のみ
-    Route::group(['prefix' => 'system', 'middleware' => ['auth','can:system-only']], function () {
+    Route::group(['prefix' => 'admin', 'middleware' => ['auth','can:system-only']], function () {
 
     //----------------------------------------
     //保育園
     //----------------------------------------
     //一覧
-    Route::get('nursery/','System\NurseryController@index');
+    Route::get('nursery/','Admin\NurseryController@index');
     
     //登録
-    Route::get('nursery/create','System\NurseryController@add');
-    Route::post('nursery/create','System\NurseryController@create');
+    Route::get('nursery/create','Admin\NurseryController@add');
+    Route::post('nursery/create','Admin\NurseryController@create');
      
 });
 
@@ -92,7 +92,12 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'],function(){
     Route::get('nursery/edit', 'Admin\NurseryController@edit');
     Route::post('nursery/edit', 'Admin\NurseryController@update');
     Route::get('nursery/delete', 'Admin\NurseryController@delete');
+    Route::get('nursery/ledger', 'Admin\NurseryController@ledger');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -6,9 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 //下記use 5月2日追記
-use App\Users;
+use admin\User;
+use admin\userbirth;
 
-class UsersController extends Controller
+class UserController extends Controller
 {
     protected $redirectTo = '/home';
      
@@ -17,7 +18,7 @@ class UsersController extends Controller
     {
         Log::warning("test");
         
-        return view('admin.users.create');
+        return view('admin.user.create');
     }
     
     //5月3日追記
@@ -26,25 +27,25 @@ class UsersController extends Controller
         //Varidationを行う
         Log::warning($request);
         
-        $this->varidate($request, Users::$rules);
+        $this->varidate($request, User::$rules);
         
-        $users = new Users;
+        $user = new User;
         $form = $request->all();
         
         //admin/users/createにリダイレクトする
         
-        Log::warning($users->title);
+        Log::warning($user->title);
         
         //フォームから送信されてきた_tokenを削除する
         unset($form['_token']);
         
         //データベースに保存する
-        $users->fill($form);
-        $users->save();
+        $user->fill($form);
+        $user->save();
         
          \Debugbar::ERROR("テスト");
          
-         return redirect('admin/users/create');
+         return redirect('admin/user/create');
     }
     
     public function index(Request $request)
@@ -52,34 +53,46 @@ class UsersController extends Controller
         $cond_title = $request->cond_title;
         if ($cond_title != '') {
             //検索されたら検索結果を取得する
-            $posts = Users::were('title', $cond_title)->get();
+            $posts = User::were('title', $cond_title)->get();
         } else {
             //それ以外はすべての内容を取得する
-            $posts = Users::all();
+            $posts = User::all();
         } 
-        return view('admin.users.index', ['posts' => $posts, 'cond_title' => $cond_title]);
+        return view('admin.user.index', ['posts' => $posts, 'cond_title' => $cond_title]);
     }
     
     public function edit()
     {
-        $users = Users::find($request->{user_id});
-        if (empty($users)) {
+        $user = User::find($request->{user_id});
+        if (empty($user)) {
           abort(404);
         }
-        return view('admin.users.edit', ['users_form' => $users]);
+        return view('admin.user.edit', ['user_form' => $user]);
+    }
+    
+    public function store(UserRequest $request)
+    {
+        $user = User::create($request->all());
+
+        if (!$user->birth) {
+            $user->birth = null;
+        }
+
+        $user->save();
+        return view('users.store');
     }
     
     public function update()
     {
-        return view('admin/users/egit');
+        return view('admin/user/egit');
     }
     
     public function delete(Request $request)
     {
    //
-   $users = Users::find($request->user_id);
+   $user = User::find($request->user_id);
    //削除する
-   $users->lete();
-   return redirect('admin/users/');
+   $user->lete();
+   return redirect('admin/user/');
   }
 }

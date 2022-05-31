@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-md-8 mx-auto">
                 <h2>メイン ページ</h2>
-                <form action="{{ action('Admin\UsersController@create') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ action('Admin\UserController@create') }}" method="post" enctype="multipart/form-data">
                     
                  @if (count($errors) > 0)
                         <ul>
