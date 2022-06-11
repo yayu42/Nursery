@@ -34,6 +34,9 @@ Route::group(['prefix' => 'admin','middleware' => 'auth'],function(){
     Route::get('user/edit','Admin\UserController@edit');
     Route::post('user/edit','Admin\UserController@update');
     Route::get('user/delete','Admin\UserController@delete');
+    
+    Route::get('/graph','Admin\WeightGraphController@show');
+   ->name("show_graph");
 
 Route::get('/home', 'HomeController@index')->name('home');
 
