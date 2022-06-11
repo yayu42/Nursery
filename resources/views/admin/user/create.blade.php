@@ -31,6 +31,7 @@
                         <input type="radio" name="gender" value="2">男 性
                         <input type="radio" name="gender" value="3">どちらでもない
                      </div>
+                     
                      <div class="form-group{{ $errors->has('birth') || $errors->has('birth_year') || $errors->has('birth_month') || $errors->has('birth_day') ? ' has-error' : '' }}">
                          <label for="birth_year" class="col-md-4 control-label">生年月日</label>
                          <div class="form-group row">
@@ -87,8 +88,31 @@
                              @endif
                          </div>
                      </div>
+                    
+                        <div class="form-group row">
+                            <label class="col-md-2"　for="grade">役　職</label>
+                            <input type="radio" name="grade" value="1">管理職
+                            <input type="radio" name="grade" value="2">リーダー
+                            <input type="radio" name="grade" value="3">サブリーダー
+                            <input type="radio" name="grade" value="4">クラス担任
+                            <input type="radio" name="grade" value="5">フリー
+                        </div>
+                        
+                        <div class="form-group row">
+                            <label class="col-md-2">Email</label>
+                                <div class="col-md-10">
+                                    <input type="text" class="form-control" name="email" value="{{ old('email') }}">
+                                </div>
+                        </div>
+                            <div class="form-group row">
+                                <label class="col-md-2">password</label>
+                                <div class="col-md-10">
+                                    <input type="password" class="form-control" name="password" value="{{ old('password') }}">
+                                </div>
+                            </div>
                     </div>
                     {{ csrf_field() }}
+                    
                     <input type="submit" class="btn btn-primary" value="更新">
                 </form>
             </div>

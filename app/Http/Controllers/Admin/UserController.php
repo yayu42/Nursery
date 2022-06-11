@@ -4,9 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 //下記use 5月2日追記
-use admin\User;
+use App\User;
 use admin\userbirth;
 
 class UserController extends Controller
@@ -16,7 +17,7 @@ class UserController extends Controller
     //5月3日追記
     public function add()
     {
-        //Log::warning("test");
+        Log::warning("test");
         
         return view('admin.user.create');
     }
@@ -25,16 +26,14 @@ class UserController extends Controller
     public function create(Request $request)
     {
         //Varidationを行う
-        //Log::warning($request);
-        
-        $this->varidate($request, User::$rules);
+        Log::warning($request);
         
         $user = new User;
         $form = $request->all();
         
         //admin/users/createにリダイレクトする
         
-        Log::warning($user->title);
+        //Log::warning($user->title);
         
         //フォームから送信されてきた_tokenを削除する
         unset($form['_token']);
@@ -53,7 +52,7 @@ class UserController extends Controller
         $cond_title = $request->cond_title;
         if ($cond_title != '') {
             //検索されたら検索結果を取得する
-            $posts = User::were('title', $cond_title)->get();
+            $posts = User::where('', $cond_title)->get();
         } else {
             //それ以外はすべての内容を取得する
             $posts = User::all();
@@ -63,7 +62,7 @@ class UserController extends Controller
     
     public function edit()
     {
-        $user = User::find($request->{user_id});
+        $user = User::find($request->$user_id);
         if (empty($user)) {
           abort(404);
         }
@@ -90,9 +89,9 @@ class UserController extends Controller
     public function delete(Request $request)
     {
    //
-   $user = User::find($request->user_id);
+   $user = User::find($request->id);
    //削除する
-   $user->lete();
+   $user->delete();
    return redirect('admin/user/');
   }
 }

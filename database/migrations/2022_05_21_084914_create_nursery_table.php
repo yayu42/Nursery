@@ -15,8 +15,9 @@ class CreateNurseryTable extends Migration
     {
         Schema::create('nursery', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('title'); //
+            $table->string('name'); //
             $table->string('body');  // 
+            $table->string('email');
             $table->string('image_path')->nullable();  // 画像のパスを保存するカラム
             $table->timestamps();
         });

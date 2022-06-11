@@ -24,7 +24,12 @@
                     </div>
                     <div class="front-group row">
                         <a href="https://d870986cce574aa58d646e8695c3aa0e.vfs.cloud9.ap-northeast-1.amazonaws.com/admin/nursery/ledger">
-                            <img src="https://gyazo.com/c40903939bb453a6407ebc88d7816e63" alt="園児台帳">
+                            <img url="images/book.jpg" alt="園児台帳">
+                        </a>
+                    </div>
+                    <div class="front-group row">
+                        <a href="https://d870986cce574aa58d646e8695c3aa0e.vfs.cloud9.ap-northeast-1.amazonaws.com/admin/user">
+                            <img url="images/Childminder.jpg" alt="職員管理">
                         </a>
                     </div>
                     
